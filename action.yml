@@ -8,6 +8,12 @@ inputs:
   env-bucket:
     type: string
     description: "Bucket where the ENV Secrets are stored"
+  aws-app-name:
+    type: string
+    description: "AWS App Name"
+  app-bucket:
+    type: string
+    description: "Bucket where the deployment is stored"
 runs:
   using: "composite"
   steps:
@@ -24,3 +30,7 @@ runs:
         ENV_BUCKET: ${{ inputs.env-bucket }}
     - run: chmod +x ./deploy.sh && ./scripts/deploy.sh
       shell: bash
+      env:
+        AWS_APP_NAME: ${{ inputs.aws-app-name }}
+        APP_BUCKET: ${{ inputs.app-bucket }}
+        AWS_FILENAME: ${{ inputs.aws-app-name }}-${{ github.sha }}
