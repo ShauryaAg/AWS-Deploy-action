@@ -14,6 +14,9 @@ inputs:
   app-bucket:
     type: string
     description: "Bucket where the deployment is stored"
+  app-group:
+    type: string
+    description: "AWS App Group"
 runs:
   using: "composite"
   steps:
@@ -34,3 +37,4 @@ runs:
         AWS_APP_NAME: ${{ inputs.aws-app-name }}
         APP_BUCKET: ${{ inputs.app-bucket }}
         AWS_FILENAME: ${{ inputs.aws-app-name }}-${{ github.sha }}
+        AWS_GROUP: ${{ inputs.app-group }}
