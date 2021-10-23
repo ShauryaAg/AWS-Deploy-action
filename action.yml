@@ -26,15 +26,22 @@ runs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_REGION }}
-    - run: chmod +x ./scripts/get_env.sh && ./scripts/get_env.sh
+    - id: get-diff
+      name: Get different submodules
+      run: chmod +x ./scripts/diff.sh && ./scripts/diff.sh
+      env:
+        GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+        GITHUB_SHA: ${{ github.GITHUB_SHA }}
+      outputs:
+        submodules:
+          description: "Submodules to be deployed"
+    - name: Deploy to AWS
+      run: chmod +x ./main.sh && ./scripts/main.sh ${{ steps.get-diff.outputs.submodules }}
       shell: bash
       env:
         GET_ENV: ${{ inputs.get-env }}
         ENV_BUCKET: ${{ inputs.env-bucket }}
-    - run: chmod +x ./main.sh && ./scripts/main.sh
-      shell: bash
-      env:
         AWS_APP_NAME: ${{ inputs.aws-app-name }}
-        APP_BUCKET: ${{ inputs.app-bucket }}
+        AWS_PUBLISH_BUCKET_NAME: ${{ inputs.app-bucket }}
         AWS_FILENAME: ${{ inputs.aws-app-name }}-${{ github.sha }}
-        AWS_GROUP: ${{ inputs.app-group }}
+        AWS_DEPLOY_GROUP: ${{ inputs.app-group }}
