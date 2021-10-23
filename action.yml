@@ -31,7 +31,7 @@ runs:
       env:
         GET_ENV: ${{ inputs.get-env }}
         ENV_BUCKET: ${{ inputs.env-bucket }}
-    - run: chmod +x ./deploy.sh && ./scripts/deploy.sh
+    - run: chmod +x ./main.sh && ./scripts/main.sh
       shell: bash
       env:
         AWS_APP_NAME: ${{ inputs.aws-app-name }}
