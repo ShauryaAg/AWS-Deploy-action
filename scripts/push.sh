@@ -1,3 +1,5 @@
+#!/bin/sh
+
 aws deploy push \
     --application-name ${AWS_APP_NAME} \
     --description "Revision for the ${AWS_APP_NAME}" \

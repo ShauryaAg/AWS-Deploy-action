@@ -1,3 +1,5 @@
+#!/bin/sh
+
 if [ ! -f "appspec.yml" ]; then
     echo $PWD
     echo "AppSpec.yml not found in project root"
