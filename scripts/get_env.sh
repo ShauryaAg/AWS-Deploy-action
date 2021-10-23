@@ -5,5 +5,5 @@ if [ -z "${GET_ENV}" ]; then
 fi
 else 
     # Copying env files from S3 to Container
-    aws s3 cp s3://$1/ ./ --recursive
+    aws s3 cp s3://$ENV_BUCKET/ ./ --recursive
 fi
