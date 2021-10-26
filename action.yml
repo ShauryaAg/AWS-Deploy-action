@@ -4,18 +4,23 @@ inputs:
   get-env:
     type: boolean
     default: true
+    required: false
     description: "Flag to get the env variables or not. Set `false` if ENV secrets should not be fetched"
   env-bucket:
     type: string
+    required: true
     description: "Bucket where the ENV Secrets are stored"
   aws-app-name:
     type: string
+    required: true
     description: "AWS App Name"
   app-bucket:
     type: string
+    required: true
     description: "Bucket where the deployment is stored"
   app-group:
     type: string
+    required: true
     description: "AWS App Group"
 runs:
   using: "composite"
