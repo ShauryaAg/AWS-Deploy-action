@@ -1,12 +1,17 @@
 # Deploy-to-AWS Action
 
-GitHub action release to deploy the application to AWS EC2
+GitHub Action to deploy the application to AWS EC2
+
+This GitHub Action is based off of my blog to deploy multiple microservices whilst maintaing a single parent repository
+
+> [How I designed and deployed a scalable microservice architecture with limited resources](https://shauryaag.medium.com/how-i-designed-and-deployed-a-scalable-microservice-architecture-with-limited-resources-c326d8ab4282)
 
 ### Steps:
 
 - Set up the AWS credentials
 - Fetch the environment variables from a bucket in AWS S3
-- Deploy the application to AWS EC2
+- Check for updates in any [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+- Deploy each submodule separately to the AWS EC2 instance
 
 ### Configuration:
 
