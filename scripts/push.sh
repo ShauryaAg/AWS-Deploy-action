@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# Pushing Application to AWS S3 Bucket
 aws deploy push \
     --application-name ${AWS_APP_NAME} \
     --description "Revision for the ${AWS_APP_NAME}" \

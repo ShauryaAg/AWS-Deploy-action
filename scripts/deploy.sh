@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# Creating AWS Deployment
 aws deploy create-deployment \
     --application-name ${AWS_APP_NAME} \
     --deployment-config-name CodeDeployDefault.OneAtATime \
