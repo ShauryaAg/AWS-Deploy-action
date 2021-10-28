@@ -21,7 +21,7 @@ inputs:
   app-group:
     type: string
     required: true
-    description: "AWS App Group"
+    description: "AWS Deployment Group Name to deploy the application"
 runs:
   using: "composite"
   steps:

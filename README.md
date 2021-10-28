@@ -21,4 +21,4 @@ This GitHub Action is based off of my blog to deploy multiple microservices whil
 | env-bucket   | string  | -       | :heavy_check_mark: | Bucket where the ENV Secrets are stored. Specify the whole path, if ENV Secrets are stored deep inside the directory tree.                |
 | aws-app-name | string  | -       | :heavy_check_mark: | AWS App Name                                                                                                                              |
 | app-bucket   | string  | -       | :heavy_check_mark: | Bucket where the deployment should be stored                                                                                              |
-| app-group    | string  | -       | :heavy_check_mark: | AWS App Group Name used to deploy the application                                                                                         |
+| app-group    | string  | -       | :heavy_check_mark: | AWS Deployment Group Name to deploy the application                                                                                       |
